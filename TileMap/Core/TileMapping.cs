@@ -28,11 +28,6 @@ namespace TileMap.Core
         public void SetTextureAtlas(Texture2D textureAtlas)
         {
             _textureAtlas = textureAtlas;
-            BuildTextureStore();
-        }
-
-        private void BuildTextureStore()
-        {
             _TextureStore = new List<Rectangle>();
             if (_textureAtlas == null)
                 return;
