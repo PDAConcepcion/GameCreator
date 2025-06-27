@@ -14,6 +14,7 @@ namespace TileMap.Core
         private Texture2D _textureAtlas;
         private Dictionary<Point, int> _tilemap;
         private List<Rectangle> _TextureStore;
+
         int tilewidth;
         int tileheight;
 
@@ -81,7 +82,9 @@ namespace TileMap.Core
             int maxX = _tilemap.Keys.Max(p => p.X) + 1;
             int maxY = _tilemap.Keys.Max(p => p.Y) + 1;
 
-            int display_tilesize = Math.Min(windowWidth / maxX, windowHeight / maxY);
+            int tilesizeX = windowWidth / maxX;
+            int tilesizeY = windowHeight / maxY;
+            int display_tilesize = (tilesizeX < tilesizeY) ? tilesizeX : tilesizeY;
 
             foreach (var item in _tilemap)
             {
